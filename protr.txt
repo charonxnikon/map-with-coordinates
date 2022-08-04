@@ -1,0 +1,35 @@
+Script started on Tue Nov 3 17:21:00 2020
+[1m[7m%[27m[1m[0m                                                                      ]7;file://MBP-Nikon.Dlink/Users/Nikon/Desktop[0m[27m[24m[JNikon@MBP-Nikon Desktop % [K[?2004hexitpython3 run_map.py[18Dvim coor.txt      [12Dls          [10Dcd Desktop[10DR --no-save <task2.r       run_map.r[?2004l
+
+R version 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R -- это свободное ПО, и оно поставляется безо всяких гарантий.
+Вы вольны распространять его при соблюдении некоторых условий.
+Введите 'license()' для получения более подробной информации.
+
+R -- это проект, в котором сотрудничает множество разработчиков.
+Введите 'contributors()' для получения дополнительной информации и
+'citation()' для ознакомления с правилами упоминания R и его пакетов
+в публикациях.
+
+Введите 'demo()' для запуска демонстрационных программ, 'help()' -- для
+получения справки, 'help.start()' -- для доступа к справке через браузер.
+Введите 'q()', чтобы выйти из R.
+
+> library(leaflet)
+> library(htmltools)
+> library(htmlwidgets)
+> 
+> data <- read.csv2("/Users/Nikon/Desktop/coor.txt", sep = "\t", dec = ".", header = TRUE)
+> map <- leaflet(data) %>% 
++   addTiles() %>%
++   addMarkers(~data$cor_x, ~data$cor_y, label = ~htmlEscape(data$Num)) %>%
++   setView(lng = 2.3, lat = 48.8, zoom = 4.2) %>%
++   addProviderTiles("OpenTopoMap")
+> map
+> 
+[1m[7m%[27m[1m[0m                                                                      ]7;file://MBP-Nikon.Dlink/Users/Nikon/Desktop[0m[27m[24m[JNikon@MBP-Nikon Desktop % [K[?2004heexit[?2004l
+
+Script done on Tue Nov 3 17:21:15 2020
